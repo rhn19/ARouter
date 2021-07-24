@@ -19,9 +19,19 @@ MonoBehaviour:
       m_GuidLow: 5036422934569322628
       m_GuidHigh: 6912923063868187311
     m_SerializedTextureGuid:
-      m_GuidLow: 1433351597782923703
-      m_GuidHigh: 734221027036830747
+      m_GuidLow: 4045482768546849603
+      m_GuidHigh: 8254880443101652043
     m_Size: {x: 1.4, y: 1.8666667}
     m_SpecifySize: 0
-    m_Name: Top 1
+    m_Name: Top_1_Rohan
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4801007790306275182
+      m_GuidHigh: 12924314572411018167
+    m_SerializedTextureGuid:
+      m_GuidLow: 9999220266274947846
+      m_GuidHigh: 7582917272577618345
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Front_1_Rohan
     m_Texture: {fileID: 0}
