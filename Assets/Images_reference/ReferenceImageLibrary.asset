@@ -16,12 +16,12 @@ MonoBehaviour:
   m_GuidHigh: 1123163115600199851
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5704564798240371280
-      m_GuidHigh: 14161782687189615525
+      m_GuidLow: 5724361288781229817
+      m_GuidHigh: 13671165371779007643
     m_SerializedTextureGuid:
-      m_GuidLow: 5103753439937850534
-      m_GuidHigh: 15946036405612555210
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: walle
+      m_GuidLow: 15110813488229638855
+      m_GuidHigh: 10684415133024510426
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: QR_code
     m_Texture: {fileID: 0}
