@@ -14,10 +14,12 @@ public class Instructions : MonoBehaviour
     public int index;
     Instruction steps = new Instruction();
 
+    private GameObject voice;
+
     // Use this for initialization
     void Start()
     {
-
+        voice = GameObject.Find("VoiceController");
         index++;
         RestClient.Get<Instruction>($"{databaseURL}instructions.json").Then(response =>
         {
@@ -47,6 +49,8 @@ public class Instructions : MonoBehaviour
             CurrentInstruction.text = "" + steps.step4;
         else
             CurrentInstruction.text = "" + steps.step5;
+
+        voice.GetComponent<speechController>().StartSpeaking(CurrentInstruction.text);
     }
 
 
