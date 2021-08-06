@@ -1163,7 +1163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &355564594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,7 +1441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &661154064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2278,7 +2278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1048080586
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3807,7 +3807,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scenario 1 new
+          m_StringArgument: Scenario 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1826871413
@@ -3943,7 +3943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1912889094
 RectTransform:
   m_ObjectHideFlags: 0
