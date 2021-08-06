@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Instructions : MonoBehaviour
@@ -50,9 +51,13 @@ public class Instructions : MonoBehaviour
         else
             CurrentInstruction.text = "" + steps.step5;
 
-        voice.GetComponent<speechController>().StartSpeaking(CurrentInstruction.text);
+        
     }
 
+    public void speakInstruction()
+    {
+        voice.GetComponent<speechController>().StartSpeaking(CurrentInstruction.text);
+    }
 
     public void OnRight()
     {
@@ -76,6 +81,11 @@ public class Instructions : MonoBehaviour
     public void openUrl()
     {
         Application.OpenURL("https://drive.google.com/file/d/1vjjeUIOCqCP2luLykEm2y4qBqtZhqSdn/view?usp=sharing");
+    }
+
+    public void loadScene(string Scene)
+    {
+        SceneManager.LoadScene(Scene);
     }
 
 }

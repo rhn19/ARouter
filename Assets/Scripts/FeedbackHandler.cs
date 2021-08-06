@@ -24,6 +24,8 @@ public class FeedbackHandler : MonoBehaviour
         public string timestamp;
     }
 
+    [SerializeField]
+    public GameObject submitButton;
 
     [SerializeField]
     public GameObject feedbackPanel;
@@ -94,7 +96,8 @@ public class FeedbackHandler : MonoBehaviour
         RestClient.Post<Rating>($"{databaseURL}writtenFeedback.json", feedback).Then(response => { Debug.Log("Posted"); });
 
         Debug.Log("Posted Written Feedback");
-
+        submitButton.SetActive(false);
+        feedbackText.GetComponent<InputField>().readOnly = true;
     }
 
     public void TakeFeedbackRating5()
@@ -111,6 +114,8 @@ public class FeedbackHandler : MonoBehaviour
 
         Debug.Log("Great!");
         feedbackPanel.SetActive(false);
+        writtenFeedbackButton.SetActive(true);
+        feedbackButton.GetComponent<Button>().interactable = false;
     }
 
     public void TakeFeedbackRating4()
@@ -127,6 +132,8 @@ public class FeedbackHandler : MonoBehaviour
 
         Debug.Log("Good!");
         feedbackPanel.SetActive(false);
+        writtenFeedbackButton.SetActive(true);
+        feedbackButton.GetComponent<Button>().interactable = false;
     }
 
     public void TakeFeedbackRating3()
@@ -143,6 +150,8 @@ public class FeedbackHandler : MonoBehaviour
 
         Debug.Log("Okay");
         feedbackPanel.SetActive(false);
+        writtenFeedbackButton.SetActive(true);
+        feedbackButton.GetComponent<Button>().interactable = false;
     }
 
     public void TakeFeedbackRating2()
@@ -159,6 +168,8 @@ public class FeedbackHandler : MonoBehaviour
 
         Debug.Log("Can be Better");
         feedbackPanel.SetActive(false);
+        writtenFeedbackButton.SetActive(true);
+        feedbackButton.GetComponent<Button>().interactable = false;
     }
 
     public void TakeFeedbackRating1()
@@ -175,5 +186,7 @@ public class FeedbackHandler : MonoBehaviour
 
         Debug.Log("Can be More Better");
         feedbackPanel.SetActive(false);
+        writtenFeedbackButton.SetActive(true);
+        feedbackButton.GetComponent<Button>().interactable = false;
     }
 }
