@@ -14,6 +14,15 @@ public class Instructions : MonoBehaviour
     public Text CurrentInstruction;
     public int index;
     Instruction steps = new Instruction();
+    public int indi = 0;
+    public GameObject Pointer_Power_Input;
+    public GameObject Pointer_LAN_Ports;
+    public GameObject Pointer_LED;
+    public GameObject Pointer_Input_RJ;
+    public GameObject Pointer_USB_Port;
+    public GameObject Pointer_WPS;
+    public GameObject Pointer_Reset_Button;
+
 
     private GameObject voice;
 
@@ -40,9 +49,26 @@ public class Instructions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (index == 1)
+
+        if (index == 1){
             CurrentInstruction.text = "" + steps.step1;
-        else if(index == 2)
+           
+                try
+                {
+
+                    Pointer_LAN_Ports.SetActive(false);
+
+                    Pointer_Input_RJ.SetActive(true);
+                }
+
+                catch (NullReferenceException e)
+                {
+
+                }
+            
+
+        }
+        else if (index == 2)
             CurrentInstruction.text = "" + steps.step2;
         else if (index == 3)
             CurrentInstruction.text = "" + steps.step3;
@@ -50,8 +76,16 @@ public class Instructions : MonoBehaviour
             CurrentInstruction.text = "" + steps.step4;
         else
             CurrentInstruction.text = "" + steps.step5;
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "Scenario 2")
+        {
+            if (indi == 0)
+            {
 
-        
+                findOverlay();
+            }
+        }
+
     }
 
     public void speakInstruction()
@@ -63,12 +97,178 @@ public class Instructions : MonoBehaviour
     {
         if (index < 5)
             index++;
+
+        if (index == 1)
+        {
+            CurrentInstruction.text = "" + steps.step1;
+            try
+            {
+                
+                Pointer_LAN_Ports.SetActive(false);
+                
+                Pointer_Input_RJ.SetActive(true);
+            }
+
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
+        else if (index == 2)
+        {
+            CurrentInstruction.text = "" + steps.step2;
+            try
+            {
+                
+                Pointer_Input_RJ.SetActive(false);
+                
+                Pointer_Power_Input.SetActive(false);
+                
+                Pointer_LAN_Ports.SetActive(true);
+            }
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
+        else if (index == 3)
+        {
+            CurrentInstruction.text = "" + steps.step3;
+            try
+            {
+                
+                Pointer_LAN_Ports.SetActive(false);
+                
+                Pointer_Power_Input.SetActive(true);
+            }
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
+        else if (index == 4)
+        {
+            CurrentInstruction.text = "" + steps.step4;
+            try
+            {
+                
+                Pointer_Power_Input.SetActive(false);
+                
+                Pointer_LED.SetActive(false);
+            }
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
+        else
+        {
+            CurrentInstruction.text = "" + steps.step5;
+            try
+            {
+
+                
+                Pointer_LED.SetActive(true);
+            }
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
     }
 
     public void OnLeft()
     {
         if (index > 1)
             index--;
+
+        if (index == 1)
+        {
+            CurrentInstruction.text = "" + steps.step1;
+            try
+            {
+
+                Pointer_LAN_Ports.SetActive(false);
+
+                Pointer_Input_RJ.SetActive(true);
+            }
+
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
+        else if (index == 2)
+        {
+            CurrentInstruction.text = "" + steps.step2;
+            try
+            {
+
+                Pointer_Input_RJ.SetActive(false);
+
+                Pointer_Power_Input.SetActive(false);
+
+                Pointer_LAN_Ports.SetActive(true);
+            }
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
+        else if (index == 3)
+        {
+            CurrentInstruction.text = "" + steps.step3;
+            try
+            {
+
+                Pointer_LAN_Ports.SetActive(false);
+
+                Pointer_Power_Input.SetActive(true);
+            }
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
+        else if (index == 4)
+        {
+            CurrentInstruction.text = "" + steps.step4;
+            try
+            {
+
+                Pointer_Power_Input.SetActive(false);
+
+                Pointer_LED.SetActive(false);
+            }
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
+        else
+        {
+            CurrentInstruction.text = "" + steps.step5;
+            try
+            {
+
+
+                Pointer_LED.SetActive(true);
+            }
+            catch (NullReferenceException e)
+            {
+
+            }
+
+        }
     }
 
 
@@ -86,6 +286,34 @@ public class Instructions : MonoBehaviour
     public void loadScene(string Scene)
     {
         SceneManager.LoadScene(Scene);
+    }
+
+    public void findOverlay()
+    {
+        try
+        {
+            Pointer_Power_Input = GameObject.Find("Pointer_Power_Input");
+            Pointer_Power_Input.SetActive(false);
+            Pointer_LAN_Ports = GameObject.Find("Pointer_LAN_Ports");
+            Pointer_LAN_Ports.SetActive(false);
+            Pointer_LED = GameObject.Find("Pointer_LED");
+            Pointer_LED.SetActive(false);
+            Pointer_Input_RJ = GameObject.Find("Pointer_Input_RJ-11");
+            Pointer_Input_RJ.SetActive(false);
+            Pointer_USB_Port = GameObject.Find("Pointer_USB_Port");
+            Pointer_USB_Port.SetActive(false);
+            Pointer_WPS = GameObject.Find("Pointer_WPS/WIFI_Button");
+            Pointer_WPS.SetActive(false);
+            Pointer_Reset_Button = GameObject.Find("Pointer_Reset_Button");
+            Pointer_Reset_Button.SetActive(false);
+            indi = 1;
+        }
+        catch (NullReferenceException e)
+        {
+            indi = 0;
+        }
+    
+
     }
 
 }
