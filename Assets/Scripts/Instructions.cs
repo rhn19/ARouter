@@ -15,13 +15,13 @@ public class Instructions : MonoBehaviour
     public int index;
     Instruction steps = new Instruction();
     public int indi = 0;
-    public GameObject Pointer_Power_Input;
-    public GameObject Pointer_LAN_Ports;
-    public GameObject Pointer_LED;
-    public GameObject Pointer_Input_RJ;
-    public GameObject Pointer_USB_Port;
-    public GameObject Pointer_WPS;
-    public GameObject Pointer_Reset_Button;
+    private GameObject Pointer_Power_Input;
+    private GameObject Pointer_LAN_Ports;
+    private GameObject Pointer_LED;
+    private GameObject Pointer_Input_RJ;
+    private GameObject Pointer_USB_Port;
+    private GameObject Pointer_WPS;
+    private GameObject Pointer_Reset_Button;
 
 
     private GameObject voice;
@@ -42,7 +42,7 @@ public class Instructions : MonoBehaviour
         });
 
         CurrentInstruction.text = "" + steps.step1;
-        Debug.Log(steps.step1);
+        //Debug.Log(steps.step1);
     }
 
 
