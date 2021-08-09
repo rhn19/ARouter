@@ -5,6 +5,9 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
+    public GameObject listenButton;
+
+    [SerializeField]
     public GameObject speakButton;
 
     [SerializeField]
@@ -51,6 +54,7 @@ public class UIManager : MonoBehaviour
         instructionText.transform.position = new Vector2(Screen.width / 2, Screen.height - 550f);
         nextButton.transform.position = new Vector2(Screen.width / 2 + 400f, Screen.height - 550f);
         prevButton.transform.position = new Vector2(Screen.width / 2 - 400f, Screen.height - 550f);
+        listenButton.transform.position = new Vector2(Screen.width - 90f, 210f);
         speakButton.transform.position = new Vector2(Screen.width - 90f, 90f);
 
         feedbackButton.transform.position = new Vector2(90f, Screen.height - 90f);

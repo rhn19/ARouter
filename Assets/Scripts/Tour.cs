@@ -13,6 +13,7 @@ public class Tour : MonoBehaviour
     public Text readText;
     public Text setupText;
     public Text listenText;
+    public Text speakText;
     public Text f1Text;
     public Text f2Text;
     public Text takeTourText;
@@ -59,7 +60,8 @@ public class Tour : MonoBehaviour
         f2Text.transform.position = new Vector2(220f, Screen.height - 210f);
         takeTourText.transform.position = new Vector2(220f, Screen.height - 330f);
 
-        listenText.transform.position = new Vector2(Screen.width - 240f, 90f);
+        listenText.transform.position = new Vector2(Screen.width - 240f, 210f);
+        speakText.transform.position = new Vector2(Screen.width - 240f, 90f);
 
         nextText.transform.position = new Vector2(Screen.width / 2 + 400f, Screen.height - 700f);
         prevText.transform.position = new Vector2(Screen.width / 2 - 400f, Screen.height - 700f);
