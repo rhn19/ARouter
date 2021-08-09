@@ -12,7 +12,13 @@ public class speechController : MonoBehaviour
     [SerializeField]
     Text UiText;
 
+    GameObject next, prev;
+
+
     private void Start() {
+        //scriptManager = GameObject.Find("ScriptManager");
+        next = GameObject.Find("NextButton");
+        prev = GameObject.Find("PrevButton");
         Setup(LANG_CODE);
         TextToSpeech.instance.onStartCallBack = OnSpeakStart;
         TextToSpeech.instance.onDoneCallback = OnSpeakStop;
@@ -61,10 +67,21 @@ public class speechController : MonoBehaviour
     }
     public void StopListening(){
         SpeechToText.instance.StopRecording();
+        //UiText.text = "Listening...";
     }
 
     void OnFinalSpeechResult(string result){
         UiText.text = result;
+        if (result.ToLower() == "next"){
+            //scriptManager.GetComponent<Instructions>().OnRight();
+            next.GetComponent<Button>().onClick.Invoke();
+        }
+        else if (result == "previous"){
+            //scriptManager.GetComponent<Instructions>().OnLeft();
+            prev.GetComponent<Button>().onClick.Invoke();
+        }
+
+        UiText.text = "Listening..";
     }
     void OnPartialSpeechResult(string result){
         UiText.text = result;
