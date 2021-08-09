@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -41,7 +42,10 @@ public class UIManager : MonoBehaviour
     public GameObject instructionText;
 
     [SerializeField]
-    public GameObject interactionText;
+    public GameObject interactionPanel;
+
+    [SerializeField]
+    public Text interactionText;
 
     // Start is called before the first frame update
     void Start()
@@ -51,9 +55,9 @@ public class UIManager : MonoBehaviour
         manualButton.transform.position = new Vector2(Screen.width - 90f, Screen.height - 210f);
         setupButton.transform.position = new Vector2(Screen.width - 90f, Screen.height - 330f);
 
-        instructionText.transform.position = new Vector2(Screen.width / 2, Screen.height - 550f);
-        nextButton.transform.position = new Vector2(Screen.width / 2 + 400f, Screen.height - 550f);
-        prevButton.transform.position = new Vector2(Screen.width / 2 - 400f, Screen.height - 550f);
+        instructionText.transform.position = new Vector2(Screen.width / 2, Screen.height - 600f);
+        nextButton.transform.position = new Vector2(Screen.width / 2 + 400f, Screen.height - 600f);
+        prevButton.transform.position = new Vector2(Screen.width / 2 - 400f, Screen.height - 600f);
         listenButton.transform.position = new Vector2(Screen.width - 90f, 210f);
         speakButton.transform.position = new Vector2(Screen.width - 90f, 90f);
 
@@ -61,7 +65,7 @@ public class UIManager : MonoBehaviour
         writtenFeedbackButton.transform.position = new Vector2(90f, Screen.height - 210f);
         helpButton.transform.position = new Vector2(90f, Screen.height - 330f);
 
-        interactionText.transform.position = new Vector2(Screen.width/2, 90f);
+        interactionPanel.transform.position = new Vector2(Screen.width/2, 90f);
         StartCoroutine(ExampleCoroutine());
     }
 
@@ -75,6 +79,6 @@ public class UIManager : MonoBehaviour
     {
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(5);
-        interactionText.SetActive(false);
+        interactionText.text = "";
     }
 }

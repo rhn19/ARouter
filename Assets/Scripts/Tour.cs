@@ -14,6 +14,7 @@ public class Tour : MonoBehaviour
     public Text setupText;
     public Text listenText;
     public Text speakText;
+    public Text interactionPanelText;
     public Text f1Text;
     public Text f2Text;
     public Text takeTourText;
@@ -42,7 +43,7 @@ public class Tour : MonoBehaviour
 
     public void takeTour()
     {
-        Debug.Log("Tour");
+        //Debug.Log("Tour");
         if (tourPanel != null)
         {
             bool isActive = tourPanel.activeSelf;
@@ -62,6 +63,8 @@ public class Tour : MonoBehaviour
 
         listenText.transform.position = new Vector2(Screen.width - 240f, 210f);
         speakText.transform.position = new Vector2(Screen.width - 240f, 90f);
+
+        interactionPanelText.transform.position = new Vector2(Screen.width / 2, 175f);
 
         nextText.transform.position = new Vector2(Screen.width / 2 + 400f, Screen.height - 700f);
         prevText.transform.position = new Vector2(Screen.width / 2 - 400f, Screen.height - 700f);

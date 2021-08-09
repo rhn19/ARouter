@@ -64,14 +64,15 @@ public class speechController : MonoBehaviour
 
     public void StartListening(){
         SpeechToText.instance.StartRecording();
+        UiText.text = "Listening...";
     }
     public void StopListening(){
         SpeechToText.instance.StopRecording();
-        //UiText.text = "Listening...";
+        UiText.text = "";
     }
 
     void OnFinalSpeechResult(string result){
-        UiText.text = result;
+        //UiText.text = result;
         if (result.ToLower() == "next"){
             //scriptManager.GetComponent<Instructions>().OnRight();
             next.GetComponent<Button>().onClick.Invoke();
@@ -81,7 +82,7 @@ public class speechController : MonoBehaviour
             prev.GetComponent<Button>().onClick.Invoke();
         }
 
-        UiText.text = "Listening..";
+        //UiText.text = "Listening..";
     }
     void OnPartialSpeechResult(string result){
         UiText.text = result;

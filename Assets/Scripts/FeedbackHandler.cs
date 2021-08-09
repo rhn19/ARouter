@@ -39,6 +39,9 @@ public class FeedbackHandler : MonoBehaviour
     [SerializeField]
     public GameObject writtenFeedbackButton;
 
+    [SerializeField]
+    public GameObject helpButton;
+
 
     private static readonly string databaseURL = $"https://not-a-router-default-rtdb.firebaseio.com/";
 
@@ -66,6 +69,7 @@ public class FeedbackHandler : MonoBehaviour
             bool isActive = feedbackPanel.activeSelf;
             feedbackPanel.SetActive(!isActive);
             writtenFeedbackButton.SetActive(isActive);
+            helpButton.SetActive(isActive);
         }
     }
 
@@ -77,7 +81,8 @@ public class FeedbackHandler : MonoBehaviour
         {
             bool isActive = writtenFeedbackPanel.activeSelf;
             writtenFeedbackPanel.SetActive(!isActive);
-            //feedbackButton.SetActive(isActive);
+            feedbackButton.SetActive(isActive);
+            helpButton.SetActive(isActive);
         }
 
     }

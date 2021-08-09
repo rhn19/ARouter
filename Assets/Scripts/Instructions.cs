@@ -10,6 +10,9 @@ using UnityEngine.UI;
 
 public class Instructions : MonoBehaviour
 {
+    [SerializeField]
+    public Text interactionText;
+
     private static readonly string databaseURL = $"https://not-a-router-default-rtdb.firebaseio.com/";
     public Text CurrentInstruction;
     public int index;
@@ -90,13 +93,19 @@ public class Instructions : MonoBehaviour
 
     public void speakInstruction()
     {
+        interactionText.text = "Speaking...";
+        StartCoroutine(ExampleCoroutine());
         voice.GetComponent<speechController>().StartSpeaking(CurrentInstruction.text);
     }
 
     public void OnRight()
     {
         if (index < 5)
+        {
             index++;
+            interactionText.text = "Next Instruction";
+            StartCoroutine(ExampleCoroutine());
+        }
 
         if (index == 1)
         {
@@ -185,7 +194,11 @@ public class Instructions : MonoBehaviour
     public void OnLeft()
     {
         if (index > 1)
+        {
             index--;
+            interactionText.text = "Previous Instruction";
+            StartCoroutine(ExampleCoroutine());
+        }   
 
         if (index == 1)
         {
@@ -314,6 +327,13 @@ public class Instructions : MonoBehaviour
         }
     
 
+    }
+
+    IEnumerator ExampleCoroutine()
+    {
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(2);
+        interactionText.text = "";
     }
 
 }
