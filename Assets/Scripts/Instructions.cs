@@ -28,11 +28,13 @@ public class Instructions : MonoBehaviour
 
 
     private GameObject voice;
+    GameObject speak;
 
     // Use this for initialization
     void Start()
     {
         voice = GameObject.Find("VoiceController");
+        speak = GameObject.Find("ListenInstruction");
         index++;
         RestClient.Get<Instruction>($"{databaseURL}instructions.json").Then(response =>
         {
@@ -189,6 +191,7 @@ public class Instructions : MonoBehaviour
             }
 
         }
+        speak.GetComponent<Button>().onClick.Invoke();
     }
 
     public void OnLeft()
@@ -282,6 +285,7 @@ public class Instructions : MonoBehaviour
             }
 
         }
+        speak.GetComponent<Button>().onClick.Invoke();
     }
 
 

@@ -12,13 +12,16 @@ public class speechController : MonoBehaviour
     [SerializeField]
     Text UiText;
 
-    GameObject next, prev;
+    GameObject next, prev, man, help, exit;
 
 
     private void Start() {
         //scriptManager = GameObject.Find("ScriptManager");
         next = GameObject.Find("NextButton");
         prev = GameObject.Find("PrevButton");
+        man = GameObject.Find("ManualButton");
+        help = GameObject.Find("HelpButton");
+        exit = GameObject.Find("QuitButton");
         Setup(LANG_CODE);
         TextToSpeech.instance.onStartCallBack = OnSpeakStart;
         TextToSpeech.instance.onDoneCallback = OnSpeakStop;
@@ -73,14 +76,27 @@ public class speechController : MonoBehaviour
 
     void OnFinalSpeechResult(string result){
         //UiText.text = result;
-        if (result.ToLower() == "next"){
+        if (result.Contains("next")){
             //scriptManager.GetComponent<Instructions>().OnRight();
             next.GetComponent<Button>().onClick.Invoke();
         }
-        else if (result == "previous"){
+        else if (result.Contains("previous")){
             //scriptManager.GetComponent<Instructions>().OnLeft();
             prev.GetComponent<Button>().onClick.Invoke();
         }
+        else if (result.Contains("manual")){
+            //scriptManager.GetComponent<Instructions>().OnLeft();
+            man.GetComponent<Button>().onClick.Invoke();
+        }
+        else if (result.Contains("help")){
+            //scriptManager.GetComponent<Instructions>().OnLeft();
+            help.GetComponent<Button>().onClick.Invoke();
+        }
+        else if (result.Contains("exit") || result.Contains("quit")){
+            //scriptManager.GetComponent<Instructions>().OnLeft();
+            exit.GetComponent<Button>().onClick.Invoke();
+        }
+        
 
         //UiText.text = "Listening..";
     }
