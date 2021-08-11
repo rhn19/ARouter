@@ -297,7 +297,7 @@ public class Instructions : MonoBehaviour
 
     public void openUrl()
     {
-        Application.OpenURL("https://drive.google.com/file/d/1vjjeUIOCqCP2luLykEm2y4qBqtZhqSdn/view?usp=sharing");
+        Application.OpenURL("https://drive.google.com/file/d/1Hjxk-yGtf_YL5ArTs8zv8zNoXQCgR6Pi/view?usp=sharing");
     }
 
     public void loadScene(string Scene)
